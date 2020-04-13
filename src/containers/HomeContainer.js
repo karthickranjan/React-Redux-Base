@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Home from '../components/Home';
 import { connect } from 'react-redux';
-import {increment,decrement} from '../actions/actions'
+import {increment,decrement,reset,fetchGithubData} from '../actions/actions'
 
 class HomeContainer extends Component {
 
@@ -19,7 +19,8 @@ class HomeContainer extends Component {
 const mapStateToProps = state => {
   console.log("state---->",state);
     return {
-      count: state.data.count
+      count: state.data.count,
+      apiData:state.data.gitData
     };
   };
   
@@ -30,7 +31,15 @@ const mapStateToProps = state => {
       },
       decrement:(data)=>{
         dispatch(decrement(data))
+      },
+      reset:data=>{
+        dispatch(reset(data))
+      },
+      fetchGithubData:data=>{
+        dispatch(fetchGithubData(data))
       }
     }
   }
+
+
   export default connect(mapStateToProps,mapDispatchToProps)(HomeContainer);
