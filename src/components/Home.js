@@ -33,7 +33,9 @@ export default class Home extends Component {
     }
 
     render() {    
-        console.log('props--->',this.props);   
+        console.log('props--->',this.props);  
+        let searchResults = this.props.searchResults;
+        var pagArray = searchResults.slice(0, 10); 
         return (
             <div style={{'width':'100%'}}>               
                <div class="row align-items-start">
@@ -57,24 +59,25 @@ export default class Home extends Component {
                    <div class="col"/>
                 </div>
                 <br/>
-                
-                <div class="row align-items-start">
+                <div  style={{height:'400px',overflow: 'scroll'}}>
                     {
-                    this.props.searchResults.length > 0 ?                    
-                    this.props.searchResults.map((product, index) => (                        
-                    <Product key={index} product={product}>           
-                        <img src={product.artworkUrl100} />
-                    </Product>
+                    pagArray.length > 0 ?                    
+                    pagArray.map((product, index) => (  
+                    <div className="row align-items-start myDiv">                      
+                        <Product key={index} product={product}>           
+                            <img src={product.artworkUrl100} />
+                        </Product> <br/></div>
                     )) :  'No Results Found!!!' 
-                }              
-                </div>               
+                } 
+                 </div>             
+                            
             </div>
         );
     }
 }
 
 const Product = ({ product, children }) => (
-    <div className="col">
+    <div className="col myCol">
         {children}&nbsp;
       {product.trackName} ${product.trackPrice}      
     </div>

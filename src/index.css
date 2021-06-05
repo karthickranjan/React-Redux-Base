@@ -33,6 +33,18 @@ body, html, .App, #root, .auth-wrapper {
   text-align: left;
 }
 
+.myDiv{ 
+  width:75%;
+  border-radius: 36px;
+  margin: 20px;
+  border: 5px outset grey;
+}
+
+.myCol{
+  margin:20px;
+  width:50%;
+  overflow: hidden;
+}
 .auth-inner {
   width: 75%;
   margin: auto;
