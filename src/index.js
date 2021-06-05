@@ -10,15 +10,17 @@ import { BrowserRouter as Router, Switch, Route, Redirect,Link} from 'react-rout
 import { createStore,applyMiddleware  } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './rootReducer';
+//import homeReducer from './reducers/reducer';
 import thunk from 'redux-thunk';
-const store = createStore(rootReducer, applyMiddleware(thunk));
+
+const store = createStore(rootReducer, applyMiddleware(thunk)); 
 
 ReactDOM.render((
   <Provider store={store}>
     <Router>
           <App>
             <Route path = "/login" component = {Login}/> 
-            <Route path = "/home" component = {HomeContainer}/> 
+            <Route path = "/home" component = {HomeContainer}/>            
             <Route path = "/signUp" component = {SignUp}/> 
           </App>
     </Router>

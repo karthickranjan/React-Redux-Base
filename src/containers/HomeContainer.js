@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Home from '../components/Home';
 import { connect } from 'react-redux';
-import {increment,decrement,reset,fetchGithubData} from '../actions/actions'
+import {increment,decrement,reset,fetchGithubData,updateEntity,updateSearchText} from '../actions/actions'
 
 class HomeContainer extends Component {
 
@@ -20,23 +20,32 @@ const mapStateToProps = state => {
   console.log("state---->",state);
     return {
       count: state.data.count,
-      apiData:state.data.gitData
+      searchResults:state.data.searchResults,
+      selectedEntity:state.data.selectedEntity,
+      entity:state.data.entity,
+      searchText:state.data.searchText
     };
   };
   
   const mapDispatchToProps =(dispatch)=>{
     return {
+      reset:(data)=>{
+        dispatch(reset(data))
+      },
       increment:(data)=>{
         dispatch(increment(data))
       },
       decrement:(data)=>{
         dispatch(decrement(data))
-      },
-      reset:data=>{
-        dispatch(reset(data))
-      },
+      },     
       fetchGithubData:data=>{
         dispatch(fetchGithubData(data))
+      },
+      updateEntity:data=>{
+        dispatch(updateEntity(data))
+      },
+      updateSearchText:data => {
+        dispatch(updateSearchText(data))
       }
     }
   }
