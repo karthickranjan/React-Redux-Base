@@ -51,6 +51,7 @@ export const fetchGithubData = (request) => {
   const apiUrl = 'https://itunes.apple.com/search?term='+request.text+'&country=us&entity='+request.entity.toLowerCase();
   //const apiUrl = 'https://itunes.apple.com/search?term='+request.text+'&country=us&entity=album';
     return (dispatch) => {    
+      dispatch(fetchData([]));
       return axios.get(apiUrl)
         .then(response => {
           dispatch(fetchData(response.data.results))

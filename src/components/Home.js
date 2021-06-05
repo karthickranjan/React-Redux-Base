@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchField from "react-search-field";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import SearchResultsScroll from './SearchResultsScroll'
 
 export default class Home extends Component {
 
@@ -59,7 +60,7 @@ export default class Home extends Component {
                    <div class="col"/>
                 </div>
                 <br/>
-                <div  style={{height:'400px',overflow: 'scroll'}}>
+                {/* <div  style={{height:'400px',overflow: 'scroll'}}>
                     {
                     pagArray.length > 0 ?                    
                     pagArray.map((product, index) => (  
@@ -69,7 +70,10 @@ export default class Home extends Component {
                         </Product> <br/></div>
                     )) :  'No Results Found!!!' 
                 } 
-                 </div>             
+                 </div> */}
+                 {
+                    pagArray.length > 0 ?  
+                 <SearchResultsScroll {...this.props}/> :<div/>   }         
                             
             </div>
         );
