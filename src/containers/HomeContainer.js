@@ -3,7 +3,7 @@ import Home from '../components/Home';
 import { connect } from 'react-redux';
 import {increment,decrement,reset,fetchGithubData,updateEntity,updateSearchText} from '../actions/actions'
 
-class HomeContainer extends Component {
+export class HomeContainer extends Component {
 
     render() {
         const name = this.props.location && this.props.location.state ? this.props.location.state.userName : ''
@@ -16,7 +16,7 @@ class HomeContainer extends Component {
     }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   console.log("state---->",state);
     return {
       count: state.data.count,
@@ -27,7 +27,7 @@ const mapStateToProps = state => {
     };
   };
   
-  const mapDispatchToProps =(dispatch)=>{
+  export const mapDispatchToProps =(dispatch)=>{
     return {
       reset:(data)=>{
         dispatch(reset(data))
