@@ -73,7 +73,7 @@ export default class Home extends Component {
                  </div> */}
                  {
                     pagArray.length > 0 ?  
-                 <SearchResultsScroll {...this.props}/> :<div/>   }         
+                 <SearchResultsScroll {...this.props}/> :  'No Results Found!!!' }         
                             
             </div>
         );
