@@ -19,9 +19,9 @@ ReactDOM.render((
   <Provider store={store}>
     <Router>
           <App>
-            <Route path = "/login" component = {Login}/> 
-            <Route path = "/home" component = {HomeContainer}/>            
-            <Route path = "/signUp" component = {SignUp}/> 
+            <Route path = "/" component = {HomeContainer}/> 
+            {/* <Route path = "/home" component = {HomeContainer}/>            
+            <Route path = "/signUp" component = {SignUp}/>  */}
           </App>
     </Router>
   </Provider>  
